@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+
+{% block title %}Tags | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section>
+  <h1 class="text-3xl font-bold mb-8">Tags</h1>
+  <div class="flex flex-wrap gap-4">
+    {% for term in terms %}
+    <a href="{{ term.permalink }}" class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full no-underline hover:bg-gray-200 dark:hover:bg-gray-700">
+      #{{ term.name }} <span class="text-gray-500 text-sm">({{ term.pages | length }})</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock content %}

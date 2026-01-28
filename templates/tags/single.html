@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+
+{% block title %}#{{ term.name }} | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section>
+  <h1 class="text-3xl font-bold mb-8">Posts tagged #{{ term.name }}</h1>
+  <ul class="space-y-4">
+    {% for page in term.pages %}
+    <li class="flex justify-between items-baseline gap-4 py-2 border-b border-gray-100 dark:border-gray-800">
+      <a href="{{ page.permalink }}" class="font-medium">{{ page.title }}</a>
+      {% if page.date %}
+      <time class="text-sm text-gray-500 shrink-0" datetime="{{ page.date }}">{{ page.date | date(format='%b %d, %Y') }}</time>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock content %}

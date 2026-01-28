@@ -1,0 +1,34 @@
+# Site Configuration
+base_url = "https://example.com"
+title = "Hexdump"
+description = "Site"
+
+# Feeds
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+
+# Taxonomies
+taxonomies = [{ name = "tags", feed = true }]
+
+# Build options
+compile_sass = false
+build_search_index = false
+
+# Markdown settings
+[markdown]
+bottom_footnotes = true
+render_emoji = true
+
+
+
+# Custom variables
+[extra]
+main_section = "posts"
+author = "Your Name"
+
+# Social links - add your own
+social_links = [
+    # { name = "github", url = "https://github.com/yourusername" },
+    # { name = "twitter", url = "https://twitter.com/yourusername" },
+    # { name = "email", url = "mailto:you@example.com" },
+]

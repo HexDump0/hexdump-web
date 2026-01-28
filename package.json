@@ -1,0 +1,16 @@
+{
+  "name": "hexdump",
+  "scripts": {
+    "css": "tailwindcss -i ./styles/input.css -o ./static/style.css --watch",
+    "css:build": "tailwindcss -i ./styles/input.css -o ./static/style.css --minify",
+    "dev": "concurrently \"npm run css\" \"zola serve\"",
+    "build": "npm run css:build && zola build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18"
+  }
+}

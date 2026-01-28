@@ -1,0 +1,58 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section>
+  <h1 class="text-3xl font-bold mb-2">{{ section.title }}</h1>
+  
+  {% if section.description %}
+  <p class="text-gray-600 dark:text-gray-400 mb-8">{{ section.description }}</p>
+  {% endif %}
+  
+  {% if section.content %}
+  <div class="prose dark:prose-invert mb-8">
+    {{ section.content | safe }}
+  </div>
+  {% endif %}
+  
+  {% if section.pages %}
+  <ul class="space-y-6">
+    {% for page in section.pages %}
+    <li class="py-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+      <article>
+        <h2 class="text-xl font-semibold mb-1">
+          <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </h2>
+        {% if page.date %}
+        <time class="text-sm text-gray-500" datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time>
+        {% endif %}
+        {% if page.description %}
+        <p class="text-gray-600 dark:text-gray-400 mt-2">{{ page.description }}</p>
+        {% endif %}
+        {% if page.taxonomies.tags %}
+        <div class="flex gap-2 mt-2">
+          {% for tag in page.taxonomies.tags %}
+          <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}" class="text-sm text-gray-500 no-underline hover:text-blue-600">#{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  
+  {% if paginator %}
+  <nav class="flex justify-center gap-8 mt-12 pt-4 border-t border-gray-200 dark:border-gray-800">
+    {% if paginator.previous %}
+    <a href="{{ paginator.previous }}">&larr; Newer</a>
+    {% endif %}
+    <span class="text-gray-500">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+    {% if paginator.next %}
+    <a href="{{ paginator.next }}">Older &rarr;</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</section>
+{% endblock content %}

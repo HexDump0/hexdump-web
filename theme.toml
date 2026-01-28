@@ -1,0 +1,10 @@
+name = "hexdump"
+description = "The theme i use for my blog"
+tags = ["Blog"]
+license = "MIT"
+homepage = ""
+min_version = "0.21.0"
+
+[author]
+name = "HexDump0"
+homepage = ""
