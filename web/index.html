@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" type="text/css" href="tailwind.css">
+        <style>
+            #links button {
+                position: relative;
+            }
+            #links button::before {
+                content: '';
+                position: absolute;
+                top: -24px;
+                left: -24px;
+                right: -24px;
+                bottom: -24px;
+            }
+        </style>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet">
+
+        <title>HexDump0</title>
+    </head>
+
+    <body class="w-screen bg-zinc-900 text-white">
+        <div class="fixed inset-0 z-0 opacity-60 bg-center scale-110 -translate-x-24 translate-y-26" style="background-image: url('./map.svg');"></div>
+        <div class="fixed inset-0 z-0 pointer-events-none bg-linear-to-b from-zinc-900 from-10% to-transparent to-40%"></div>
+        <nav class="w-full px-12 flex items-center justify-between relative mt-8 z-10">
+            <div id="logo">
+                <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+            </div>
+            <div id="links" class="flex gap-6 bg-zinc-900 z-10 mr-12 px-6">
+                <button href="#"
+                    class="text-3xl jetbrains-mono-regular transition-opacity duration-500">About</button>
+                <button disabled
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Blog</button>
+                <button disabled
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Socials</button>
+            </div>
+            <div id="line" class="h-1 bg-white absolute translate-y-2.5 left-12 right-12"></div>
+        </nav>
+
+        <script>
+            const aboutLink = document.querySelector('#links button:not([disabled])');
+            const disabledBtns = document.querySelectorAll('button[disabled]');
+
+            disabledBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', () => aboutLink.classList.add('opacity-50'));
+                btn.addEventListener('mouseleave', () => aboutLink.classList.remove('opacity-50'));
+            });
+        </script>
+    </body>
+
+</html>
