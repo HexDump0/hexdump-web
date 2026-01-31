@@ -11,7 +11,7 @@
   .fira-code-regular {
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
   }
 
@@ -38,6 +38,27 @@
 
   .jetbrains-mono-bold {
     font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .space-grotesk-light {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .space-grotesk-regular {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .space-grotesk-bold {
+    font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
