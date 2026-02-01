@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" type="text/css" href="tailwind.css">
+        <style>
+            #links button {
+                position: relative;
+            }
+
+            #links button::before {
+                content: '';
+                position: absolute;
+                top: -24px;
+                left: -24px;
+                right: -24px;
+                bottom: -24px;
+            }
+        </style>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+        <title>HexDump0</title>
+    </head>
+
+    <body class="w-screen min-h-screen bg-zinc-900 text-white flex flex-col relative">
+        <div class="absolute top-0 left-0 right-0 h-96 z-0 overflow-hidden pointer-events-none">
+            <img src="https://picsum.photos/seed/29/1200/800" class="w-full h-full object-cover opacity-60" alt="">
+            <div class="absolute inset-0 bg-black/67"></div>
+            <div class="absolute inset-0 bg-linear-to-b from-transparent to-zinc-900"></div>
+        </div>
+        <nav class="w-full flex items-center justify-between mt-8 px-12 relative z-10">
+            <div class="flex-1 relative flex items-center mr-6">
+                <div class="absolute left-0 right-0 h-1 bg-white translate-y-2.5"></div>
+                <div id="logo" class="relative">
+                    <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+                </div>
+            </div>
+            <div id="links" class="flex gap-6 z-10">
+                <button disabled
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">About</button>
+                <button
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Blog</button>
+                <button disabled
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Socials</button>
+            </div>
+            <div class="h-1 w-12 bg-white translate-y-2.5 ml-6"></div>
+        </nav>
+
+
+        <main class="flex-1 flex flex-col min-h-screen px-12 py-16 w-full mx-auto relative isolate">
+            <div class="max-w-4xl relative z-10">
+                <div class="flex gap-2 mb-4">
+                    <span
+                        class="px-3 py-1 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-white/20 jetbrains-mono-regular">Rants</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-white/20 jetbrains-mono-regular">Non-technical</span>
+                </div>
+
+                <h1 class="text-7xl fira-code-bold mb-2">Hello world</h1>
+                <p class="jetbrains-mono-regular opacity-75">26/01/26</p>
+
+                <div class="w-6xl">
+                    <div class="mt-16 space-y-8 text-lg inter-regular pl-56 w-full">
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                            pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu
+                            aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
+                            aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                            pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu
+                            aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
+                            aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                            pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu
+                            aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
+                            aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                            pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu
+                            aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class
+                            aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="h-[50vh] w-screen relative overflow-hidden flex flex-col">
+            <div class="flex items-center justify-center flex-1">
+                <div id="bg" class="absolute inset-0">
+                    <div class="absolute inset-0 bg-linear-to-t from-zinc-900/80 to-zinc-900 to-90%"></div>
+                    <div class="absolute inset-0 -z-10"
+                        style="background: linear-gradient(90deg, #4a90d9 0%, #7eb8e6 20%, #d4a5c9 40%, #f5b8c9 50%, #f0c8a8 70%, #e8d4b8 100%);">
+                    </div>
+                </div>
+                <div id="content" class="relative z-10 w-full h-full flex gap-12 items-center justify-between px-96">
+                    <div>
+                        <h1 class="text-4xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+                        <p class="space-grotesk-regular text-xl opacity-75 mt-2">Last updated 26/01/26</p>
+                    </div>
+                    <div class="flex gap-4 flex-col">
+                        <a href="#" class="text-3xl jetbrains-mono-regular">About</a>
+                        <a href="#" class="text-3xl jetbrains-mono-regular">Blog</a>
+                        <a href="#" class="text-3xl jetbrains-mono-regular">Socials</a>
+                    </div>
+                </div>
+            </div>
+            <div id="end" class="flex items-center justify-end px-12 relative z-20 mb-8">
+                <h1 class="text-5xl fira-code-bold text-white">Trust None</h1>
+                <div id="line" class="h-1 bg-white absolute translate-y-2 left-12 right-12"></div>
+            </div>
+        </footer>
+
+        <script>
+            const aboutLink = document.querySelector('#links button:not([disabled])');
+            const disabledBtns = document.querySelectorAll('button[disabled]');
+
+            disabledBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', () => aboutLink.classList.add('opacity-50'));
+                btn.addEventListener('mouseleave', () => aboutLink.classList.remove('opacity-50'));
+            });
+        </script>
+    </body>
+
+</html>

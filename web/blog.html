@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" type="text/css" href="tailwind.css">
+        <style>
+            #links button {
+                position: relative;
+            }
+
+            #links button::before {
+                content: '';
+                position: absolute;
+                top: -24px;
+                left: -24px;
+                right: -24px;
+                bottom: -24px;
+            }
+        </style>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap"
+            rel="stylesheet">
+
+        <title>HexDump0</title>
+    </head>
+
+    <body class="w-screen min-h-screen bg-zinc-900 text-white flex flex-col">
+        <nav class="w-full flex items-center justify-between mt-8 px-12">
+            <div id="logo">
+                <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+            </div>
+            <div id="links" class="flex gap-6 bg-zinc-900 z-10 mr-12 px-6">
+                <button disabled
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">About</button>
+                <button disabled
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Blog</button>
+                <button
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Socials</button>
+            </div>
+            <div id="line" class="h-1 bg-white absolute translate-y-2.5 left-12 right-12"></div>
+        </nav>
+
+
+        <main class="flex-1 flex flex-col min-h-screen px-12 py-16 w-full mx-auto">
+            <h2 class="text-4xl jetbrains-mono-regular mb-8">New</h2>
+            
+            <div class="flex gap-8 mb-16">
+                <div class="bg-zinc-800 rounded-xl p-6 w-96 h-60 flex flex-col relative group transition-transform duration-300 overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://picsum.photos/seed/29/400/300" class="w-full h-full object-cover" alt="">
+                        <div class="absolute inset-0 bg-black/67"></div>
+                    </div>
+                    <div class="flex gap-2 mb-4 relative z-10">
+                        <span class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular ">Rants</span>
+                        <span class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular">Non-technical</span>
+                    </div>
+                    <h3 class="text-4xl jetbrains-mono-regular mt-2 relative z-10">Hello World</h3>
+                    <div class="absolute bottom-6 left-6 jetbrains-mono-regular text-xl opacity-75 z-10">17/01/26</div>
+                </div>
+
+                <div
+                    class="bg-zinc-800 rounded-xl p-6 w-96 h-60 flex flex-col relative group transition-transform duration-300 overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://picsum.photos/seed/27/400/300" class="w-full h-full object-cover" alt="">
+                        <div class="absolute inset-0 bg-black/67"></div>
+                    </div>
+                    <div class="flex gap-2 mb-4 relative z-10">
+                        <span class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular ">Web</span>
+                    </div>
+                    <h3 class="text-4xl jetbrains-mono-regular mt-2 relative z-10">Doin stuff</h3>
+                    <div class="absolute bottom-6 left-6 jetbrains-mono-regular text-xl opacity-75 z-10">20/01/26</div>
+                </div>
+
+            </div>
+
+            <h2 class="text-4xl jetbrains-mono-regular mb-8">Old</h2>
+            
+            <div class="flex flex-col w-full">
+                <!-- Item 1 -->
+                <div class="border-b border-white py-6 flex items-center gap-8 hover:bg-zinc-800/50 transition-colors px-4 -mx-4 cursor-pointer">
+                    <span class="text-2xl fira-code-regular text-zinc-400">17/01/26</span>
+                    <span class="text-zinc-500 text-3xl">•</span>
+                    <h3 class="text-3xl jetbrains-mono-regular transition-transform">Hello World</h3>
+                </div>
+                
+                <!-- Item 2 -->
+                <div
+                    class="border-b border-white py-6 flex items-center gap-8 hover:bg-zinc-800/50 transition-colors px-4 -mx-4 cursor-pointer">
+                    <span class="text-2xl fira-code-regular text-zinc-400">20/01/26</span>
+                    <span class="text-zinc-500 text-3xl">•</span>
+                    <h3 class="text-3xl jetbrains-mono-regular transition-transform">Doin stuff</h3>
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="h-[50vh] w-screen relative overflow-hidden flex flex-col">
+            <div class="flex items-center justify-center flex-1">
+                <div id="bg" class="absolute inset-0">
+                    <div class="absolute inset-0 bg-linear-to-t from-zinc-900/75 to-zinc-900 to-90%"></div>
+                    <div class="absolute inset-0 -z-10"
+                        style="background: linear-gradient(90deg, #4a90d9 0%, #7eb8e6 20%, #d4a5c9 40%, #f5b8c9 50%, #f0c8a8 70%, #e8d4b8 100%);">
+                    </div>
+                </div>
+                <div id="content" class="relative z-10 w-full h-full flex gap-12 items-center justify-between px-96">
+                    <div>
+                        <h1 class="text-4xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+                        <p class="space-grotesk-regular text-xl opacity-75 mt-2">Last updated 26/01/26</p>
+                    </div>
+                    <div class="flex gap-4 flex-col">
+                        <a href="#" class="text-3xl jetbrains-mono-regular">About</a>
+                        <a href="#" class="text-3xl jetbrains-mono-regular">Blog</a>
+                        <a href="#" class="text-3xl jetbrains-mono-regular">Socials</a>
+                    </div>
+                </div>
+            </div>
+            <div id="end" class="flex items-center justify-end px-12 relative z-20 mb-8">
+                <h1 class="text-5xl fira-code-bold text-white">Trust None</h1>
+                <div id="line" class="h-1 bg-white absolute translate-y-2 left-12 right-12"></div>
+            </div>
+        </footer>
+
+        <script>
+            const aboutLink = document.querySelector('#links button:not([disabled])');
+            const disabledBtns = document.querySelectorAll('button[disabled]');
+
+            disabledBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', () => aboutLink.classList.add('opacity-50'));
+                btn.addEventListener('mouseleave', () => aboutLink.classList.remove('opacity-50'));
+            });
+        </script>
+    </body>
+
+</html>
