@@ -32,19 +32,38 @@
     </head>
 
     <body class="w-screen min-h-screen bg-zinc-900 text-white flex flex-col">
-        <nav class="w-full flex items-center justify-between fixed mt-8 px-12">
-            <div id="logo">
-                <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+        <nav class="w-full flex items-center justify-between mt-8 px-6 md:px-12 z-50">
+            <div class="flex-1 relative flex items-center">
+                <div class="absolute left-0 right-0 h-1 bg-white translate-y-2.5 z-30"></div>
+                <div id="logo" class="relative z-20 pr-4">
+                    <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+                </div>
             </div>
-            <div id="links" class="flex gap-6 bg-zinc-900 z-10 mr-12 px-6">
+        
+            <div id="links" class="hidden md:flex gap-6 z-20 bg-zinc-900 px-6">
                 <button disabled class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">About</button>
                 <button disabled
                     class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Blog</button>
                 <button
                     class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Socials</button>
             </div>
-            <div id="line" class="h-1 bg-white absolute translate-y-2.5 left-12 right-12"></div>
+        
+            <div class="hidden md:block h-1 w-12 bg-white translate-y-2.5 z-10"></div>
+        
+            <button id="mobile-toggle" class="md:hidden z-50 text-white focus:outline-none bg-zinc-900 pl-4 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </nav>
+        
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-zinc-900 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
+            <button disabled class="text-4xl jetbrains-mono-regular disabled:opacity-50">About</button>
+            <button disabled class="text-4xl jetbrains-mono-regular disabled:opacity-50">Blog</button>
+            <button class="text-4xl jetbrains-mono-regular disabled:opacity-50">Socials</button>
+        </div>
 
 
         <main class="flex-1 flex items-center justify-center">
@@ -54,8 +73,8 @@
                     <span class="text-cyan-400">PGP</span>
                     <span>keys</span>
                 </a>
-                <div class="flex gap-16">
-                    <div class="flex flex-col gap-4">
+                <div class="flex gap-8 md:gap-16 flex-col md:flex-row">
+                    <div class="flex flex-col gap-8 md:gap-4">
                         <a href="#" class="flex items-center gap-6 text-3xl jetbrains-mono-regular">
                             <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/discord.svg" class="invert" />
                             <span>Discord</span>
@@ -69,8 +88,8 @@
                             <span>Mail</span>
                         </a>
                     </div>
-                    <div class="w-0.5 bg-white"></div>
-                    <div class="flex flex-col gap-4">
+                    <div class="w-0.5 bg-white hidden md:block"></div>
+                    <div class="flex flex-col gap-8 md:gap-4">
                         <a href="#" class="flex items-center gap-6 text-3xl jetbrains-mono-regular">
                             <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/github.svg" class="invert" />
                             <span>Github</span>
@@ -96,6 +115,23 @@
             disabledBtns.forEach(btn => {
                 btn.addEventListener('mouseenter', () => aboutLink.classList.add('opacity-50'));
                 btn.addEventListener('mouseleave', () => aboutLink.classList.remove('opacity-50'));
+            });
+
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileIconPath = mobileToggle.querySelector('path');
+            
+            let isMenuOpen = false;
+
+            mobileToggle.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                     mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                     mobileIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                } else {
+                     mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                     mobileIconPath.setAttribute('d', 'M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5');
+                }
             });
         </script>
     </body>

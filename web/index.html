@@ -32,19 +32,36 @@
     </head>
 
     <body class="w-screen bg-zinc-900 text-white">
-        <nav class="w-full flex items-center justify-between fixed mt-8 px-12">
-            <div id="logo">
-                <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+        <nav class="w-full flex items-center justify-between fixed mt-8 px-6 md:px-12 z-50">
+            <div class="flex-1 relative flex items-center">
+                <div class="absolute left-0 right-0 h-1 bg-white translate-y-2.5 z-30"></div>
+                <div id="logo" class="relative z-20 pr-4">
+                    <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+                </div>
             </div>
-            <div id="links" class="flex gap-6 bg-zinc-900 z-10 mr-12 px-6">
-                <button href="#" class="text-3xl jetbrains-mono-regular transition-opacity duration-500">About</button>
+            
+            <div id="links" class="hidden md:flex gap-6 z-20 bg-zinc-900 px-6">
+                <button href="#" class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">About</button>
                 <button disabled
                     class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Blog</button>
                 <button disabled
                     class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Socials</button>
             </div>
-            <div id="line" class="h-1 bg-white absolute translate-y-2.5 left-12 right-12"></div>
+            
+            <div class="hidden md:block h-1 w-12 bg-white translate-y-2.5 z-10"></div>
+
+            <button id="mobile-toggle" class="md:hidden z-50 text-white focus:outline-none bg-zinc-900 pl-4 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </nav>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-zinc-900 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
+            <button href="#" class="text-4xl jetbrains-mono-regular disabled:opacity-50">About</button>
+            <button disabled class="text-4xl jetbrains-mono-regular disabled:opacity-50">Blog</button>
+            <button disabled class="text-4xl jetbrains-mono-regular disabled:opacity-50">Socials</button>
+        </div>
 
 
         <div id="bg" class="-z-10 fixed inset-0 h-screen overflow-hidden">
@@ -54,53 +71,43 @@
                 class="absolute inset-0 z-0 pointer-events-none bg-linear-to-b from-zinc-900 from-10% to-transparent to-40%">
             </div>
         </div>
-        <div class="h-[70vh]"></div>
+        <div class="h-[65vh] md:h-[70vh]"></div>
 
         <div id="hero" class="relative z-10 bg-zinc-900">
-            <div class="text-white h-[30vh] w-screen flex items-center fira-code-regular px-12">
-                <p class="text-3xl">
+            <div class="text-white h-[35vh] md:h-[30vh] w-screen flex items-center fira-code-regular px-12">
+                <p class="text-xl md:text-3xl">
                     Hello I'm HexDump0, a random guy who likes to write, hack stuff (web for now) and rant about stupid stuff.
                     <br>
-                    <span class="block text-right mt-12 text-zinc-500 italic"> -"My crime is that of curiosity."</span>
+                    <span class="block text-right mt-12 text-white italic opacity-50 "> -"My crime is that of curiosity."</span>
                 </p>
             </div>
-
-            <footer class="h-[50vh] w-screen relative overflow-hidden flex flex-col">
-                <div class="flex items-center justify-center flex-1">
-                    <div id="bg" class="absolute inset-0">
-                        <div class="absolute inset-0 bg-linear-to-t from-zinc-900/75 to-zinc-900 to-90%"></div>
-                        <div class="absolute inset-0 -z-10"
-                            style="background: linear-gradient(90deg, #4a90d9 0%, #7eb8e6 20%, #d4a5c9 40%, #f5b8c9 50%, #f0c8a8 70%, #e8d4b8 100%);">
-                        </div>
-                    </div>
-                    <div id="content"
-                        class="relative z-10 w-full h-full flex gap-12 items-center justify-between px-96">
-                        <div>
-                            <h1 class="text-4xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
-                            <p class="space-grotesk-regular text-xl opacity-75 mt-2">Last updated 26/01/26</p>
-                        </div>
-                        <div class="flex gap-4 flex-col">
-                            <a href="#" class="text-3xl jetbrains-mono-regular">About</a>
-                            <a href="#" class="text-3xl jetbrains-mono-regular">Blog</a>
-                            <a href="#" class="text-3xl jetbrains-mono-regular">Socials</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="end" class="flex items-center justify-end px-12 relative z-20 mb-8">
-                    <h1 class="text-5xl fira-code-bold text-white">Trust None</h1>
-                    <div id="line" class="h-1 bg-white absolute translate-y-2 left-12 right-12"></div>
-                </div>
-            </footer>
         </div>
 
 
         <script>
             const aboutLink = document.querySelector('#links button:not([disabled])');
-            const disabledBtns = document.querySelectorAll('button[disabled]');
+            const disabledBtns = document.querySelectorAll('#links button[disabled]');
 
             disabledBtns.forEach(btn => {
                 btn.addEventListener('mouseenter', () => aboutLink.classList.add('opacity-50'));
                 btn.addEventListener('mouseleave', () => aboutLink.classList.remove('opacity-50'));
+            });
+
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileIconPath = mobileToggle.querySelector('path');
+            
+            let isMenuOpen = false;
+
+            mobileToggle.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                     mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                     mobileIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                } else {
+                     mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                     mobileIconPath.setAttribute('d', 'M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5');
+                }
             });
         </script>
     </body>

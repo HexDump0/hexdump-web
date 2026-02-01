@@ -32,47 +32,72 @@
     </head>
 
     <body class="w-screen min-h-screen bg-zinc-900 text-white flex flex-col">
-        <nav class="w-full flex items-center justify-between mt-8 px-12">
-            <div id="logo">
-                <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+        <nav class="w-full flex items-center justify-between mt-8 px-6 md:px-12 z-50">
+            <div class="flex-1 relative flex items-center">
+                <div class="absolute left-0 right-0 h-1 bg-white translate-y-2.5 z-30"></div>
+                <div id="logo" class="relative z-20 pr-4">
+                    <h1 class="text-5xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
+                </div>
             </div>
-            <div id="links" class="flex gap-6 bg-zinc-900 z-10 mr-12 px-6">
+
+            <div id="links" class="hidden md:flex gap-6 z-20 bg-zinc-900 px-6">
                 <button disabled
                     class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">About</button>
-                <button disabled
-                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Blog</button>
                 <button
+                    class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Blog</button>
+                <button disabled
                     class="text-3xl jetbrains-mono-regular disabled:opacity-50 hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">Socials</button>
             </div>
-            <div id="line" class="h-1 bg-white absolute translate-y-2.5 left-12 right-12"></div>
+
+            <div class="hidden md:block h-1 w-12 bg-white translate-y-2.5 z-10"></div>
+
+            <button id="mobile-toggle"
+                class="md:hidden z-50 text-white focus:outline-none bg-zinc-900 pl-4 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </nav>
 
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-zinc-900 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
+            <button disabled class="text-4xl jetbrains-mono-regular disabled:opacity-50">About</button>
+            <button class="text-4xl jetbrains-mono-regular disabled:opacity-50">Blog</button>
+            <button disabled class="text-4xl jetbrains-mono-regular disabled:opacity-50">Socials</button>
+        </div>
 
-        <main class="flex-1 flex flex-col min-h-screen px-12 py-16 w-full mx-auto">
+
+        <main class="flex-1 flex flex-col min-h-screen px-6 md:px-12 py-16 w-full mx-auto">
             <h2 class="text-4xl jetbrains-mono-regular mb-8">New</h2>
-            
-            <div class="flex gap-8 mb-16">
-                <div class="bg-zinc-800 rounded-xl p-6 w-96 h-60 flex flex-col relative group transition-transform duration-300 overflow-hidden cursor-pointer">
+
+            <div class="flex gap-8 mb-16 flex-col md:flex-row">
+                <div
+                    class="bg-zinc-800 rounded-xl p-6 w-full md:w-96 h-56 md:h-60 flex flex-col relative group transition-transform duration-300 overflow-hidden cursor-pointer">
                     <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <img src="https://picsum.photos/seed/29/400/300" class="w-full h-full object-cover" alt="">
                         <div class="absolute inset-0 bg-black/67"></div>
                     </div>
                     <div class="flex gap-2 mb-4 relative z-10">
-                        <span class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular ">Rants</span>
-                        <span class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular">Non-technical</span>
+                        <span
+                            class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular ">Rants</span>
+                        <span
+                            class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular">Non-technical</span>
                     </div>
                     <h3 class="text-4xl jetbrains-mono-regular mt-2 relative z-10">Hello World</h3>
                     <div class="absolute bottom-6 left-6 jetbrains-mono-regular text-xl opacity-75 z-10">17/01/26</div>
                 </div>
 
                 <div
-                    class="bg-zinc-800 rounded-xl p-6 w-96 h-60 flex flex-col relative group transition-transform duration-300 overflow-hidden cursor-pointer">
+                    class="bg-zinc-800 rounded-xl p-6 w-full md:w-96 h-56 md:h-60 flex flex-col relative group transition-transform duration-300 overflow-hidden cursor-pointer">
                     <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <img src="https://picsum.photos/seed/27/400/300" class="w-full h-full object-cover" alt="">
                         <div class="absolute inset-0 bg-black/67"></div>
                     </div>
                     <div class="flex gap-2 mb-4 relative z-10">
-                        <span class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular ">Web</span>
+                        <span
+                            class="bg-zinc-900/80 backdrop-blur-sm rounded-full px-3 py-1 jetbrains-mono-regular ">Web</span>
                     </div>
                     <h3 class="text-4xl jetbrains-mono-regular mt-2 relative z-10">Doin stuff</h3>
                     <div class="absolute bottom-6 left-6 jetbrains-mono-regular text-xl opacity-75 z-10">20/01/26</div>
@@ -81,21 +106,22 @@
             </div>
 
             <h2 class="text-4xl jetbrains-mono-regular mb-8">Old</h2>
-            
+
             <div class="flex flex-col w-full">
                 <!-- Item 1 -->
-                <div class="border-b border-white py-6 flex items-center gap-8 hover:bg-zinc-800/50 transition-colors px-4 -mx-4 cursor-pointer">
-                    <span class="text-2xl fira-code-regular text-zinc-400">17/01/26</span>
-                    <span class="text-zinc-500 text-3xl">•</span>
-                    <h3 class="text-3xl jetbrains-mono-regular transition-transform">Hello World</h3>
+                <div
+                    class="border-b border-white py-4 md:py-6 flex items-center gap-4 md:gap-8 hover:bg-zinc-800/50 transition-colors px-4 -mx-4 cursor-pointer">
+                    <span class="md:text-2xl fira-code-regular text-zinc-400">17/01/26</span>
+                    <span class="text-zinc-500 text-2xl md:text-3xl">•</span>
+                    <h3 class="text-2xl md:text-3xl jetbrains-mono-regular transition-transform">Hello World</h3>
                 </div>
-                
+
                 <!-- Item 2 -->
                 <div
-                    class="border-b border-white py-6 flex items-center gap-8 hover:bg-zinc-800/50 transition-colors px-4 -mx-4 cursor-pointer">
-                    <span class="text-2xl fira-code-regular text-zinc-400">20/01/26</span>
-                    <span class="text-zinc-500 text-3xl">•</span>
-                    <h3 class="text-3xl jetbrains-mono-regular transition-transform">Doin stuff</h3>
+                    class="border-b border-white py-4 md:py-6 flex items-center gap-4 md:gap-8 hover:bg-zinc-800/50 transition-colors px-4 -mx-4 cursor-pointer">
+                    <span class="md:text-2xl fira-code-regular text-zinc-400">20/01/26</span>
+                    <span class="text-zinc-500 text-2xl md:text-3xl">•</span>
+                    <h3 class="text-2xl md:text-3xl jetbrains-mono-regular transition-transform">Doin stuff</h3>
                 </div>
             </div>
         </main>
@@ -104,17 +130,17 @@
         <footer class="h-[50vh] w-screen relative overflow-hidden flex flex-col">
             <div class="flex items-center justify-center flex-1">
                 <div id="bg" class="absolute inset-0">
-                    <div class="absolute inset-0 bg-linear-to-t from-zinc-900/75 to-zinc-900 to-90%"></div>
+                    <div class="absolute inset-0 bg-linear-to-t from-zinc-900/80 to-zinc-900 to-90%"></div>
                     <div class="absolute inset-0 -z-10"
                         style="background: linear-gradient(90deg, #4a90d9 0%, #7eb8e6 20%, #d4a5c9 40%, #f5b8c9 50%, #f0c8a8 70%, #e8d4b8 100%);">
                     </div>
                 </div>
-                <div id="content" class="relative z-10 w-full h-full flex gap-12 items-center justify-between px-96">
-                    <div>
+                <div class="relative z-10 w-full h-full flex gap-12 items-center justify-center md:justify-between md:px-96">
+                    <div class="text-center md:text-left">
                         <h1 class="text-4xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
                         <p class="space-grotesk-regular text-xl opacity-75 mt-2">Last updated 26/01/26</p>
                     </div>
-                    <div class="flex gap-4 flex-col">
+                    <div class="hidden md:flex gap-4 flex-col">
                         <a href="#" class="text-3xl jetbrains-mono-regular">About</a>
                         <a href="#" class="text-3xl jetbrains-mono-regular">Blog</a>
                         <a href="#" class="text-3xl jetbrains-mono-regular">Socials</a>
@@ -122,8 +148,8 @@
                 </div>
             </div>
             <div id="end" class="flex items-center justify-end px-12 relative z-20 mb-8">
-                <h1 class="text-5xl fira-code-bold text-white">Trust None</h1>
-                <div id="line" class="h-1 bg-white absolute translate-y-2 left-12 right-12"></div>
+                <h1 class="text-4xl md:text-5xl fira-code-bold text-white">Trust None</h1>
+                <div id="line" class="h-1 bg-white absolute translate-y-1.5 md:translate-y-2 left-6 right-6"></div>
             </div>
         </footer>
 
@@ -134,6 +160,23 @@
             disabledBtns.forEach(btn => {
                 btn.addEventListener('mouseenter', () => aboutLink.classList.add('opacity-50'));
                 btn.addEventListener('mouseleave', () => aboutLink.classList.remove('opacity-50'));
+            });
+
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileIconPath = mobileToggle.querySelector('path');
+
+            let isMenuOpen = false;
+
+            mobileToggle.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                } else {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileIconPath.setAttribute('d', 'M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5');
+                }
             });
         </script>
     </body>
