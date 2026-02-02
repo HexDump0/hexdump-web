@@ -1,26 +1,21 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<div class="space-y-12">
-  <div>
-    <h1 class="text-4xl font-bold mb-2">{{ config.title }}</h1>
-    <p class="text-xl text-gray-600 dark:text-gray-400">{{ config.description }}</p>
-  </div>
-  
-  {% set section = get_section(path="posts/_index.md") %}
-  {% if section.pages %}
-  <section>
-    <h2 class="text-2xl font-semibold mb-6">Recent Posts</h2>
-    <ul class="space-y-4">
-      {% for page in section.pages | slice(end=5) %}
-      <li class="flex justify-between items-baseline gap-4 py-2 border-b border-gray-100 dark:border-gray-800">
-        <a href="{{ page.permalink }}" class="font-medium">{{ page.title }}</a>
-        <time class="text-sm text-gray-500 shrink-0" datetime="{{ page.date }}">{{ page.date | date(format='%b %d, %Y') }}</time>
-      </li>
-      {% endfor %}
-    </ul>
-    <a href="{{ section.permalink }}" class="inline-block mt-6 text-sm">View all posts →</a>
-  </section>
-  {% endif %}
-</div>
+    <div id="bg" class="-z-10 fixed inset-0 h-screen overflow-hidden">
+      <div class="absolute inset-0 z-0 opacity-60 bg-center bg-no-repeat bg-cover"
+        style="background-image: url({{ get_url(path='images/map.svg') }}); background-position: center center;"></div>
+      <div class="absolute inset-0 z-0 pointer-events-none bg-linear-to-b from-zinc-900 from-10% to-transparent to-40%">
+      </div>
+    </div>
+    <div class="h-[65vh] md:h-[70vh]"></div>
+    
+    <div id="hero" class="relative z-10 bg-zinc-900">
+      <div class="text-white h-[35vh] md:h-[30vh] w-screen flex items-center fira-code-regular px-12">
+        <p class="text-xl md:text-3xl">
+          Hello I'm HexDump0, a random guy who likes to write, hack stuff (web for now) and rant about stupid stuff.
+          <br>
+          <span class="block text-right mt-12 text-white italic opacity-50 "> -"My crime is that of curiosity."</span>
+        </p>
+      </div>
+    </div>
 {% endblock content %}

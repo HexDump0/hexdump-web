@@ -1,6 +1,6 @@
 # Site Configuration
 base_url = "https://example.com"
-title = "Hexdump"
+title = "Hexdump0"
 description = "Site"
 
 # Feeds
@@ -31,4 +31,12 @@ social_links = [
     # { name = "github", url = "https://github.com/yourusername" },
     # { name = "twitter", url = "https://twitter.com/yourusername" },
     # { name = "email", url = "mailto:you@example.com" },
+]
+
+[extra.navbar]
+name = ["Hexdump", "0"]
+items = [
+  { name = "About", path = "/", default = true },
+  { name = "Blog", path = "/blog" },
+  { name = "Socials", path = "/socials" },
 ]

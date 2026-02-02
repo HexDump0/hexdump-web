@@ -1,0 +1,61 @@
+<nav class="w-full flex items-center justify-between fixed mt-8 px-6 md:px-12 z-50">
+    <div class="flex-1 relative flex items-center">
+        <div class="absolute left-0 right-0 h-1 bg-white translate-y-2.5 z-30"></div>
+        <div id="logo" class="relative z-20 pr-4">
+            <h1 class="text-5xl fira-code-bold">
+                {%- for part in config.extra.navbar.name -%}
+                    {%- if loop.index0 == 0 -%}
+                        {{ part }}
+                    {%- else -%}
+                        <span class="text-cyan-400">{{ part }}</span>
+                    {%- endif -%}
+                {%- endfor -%}
+            </h1>
+        </div>
+    </div>
+
+    <div id="links" class="hidden md:flex gap-6 z-20 px-6">
+        {%- for item in config.extra.navbar.items %}
+            {# Determine if this is the current page #}
+            {%- set is_current = false %}
+            {%- if current_path is defined %}
+                {%- set is_current = (current_path == item.path) %}
+            {%- elif item.default %}
+                {%- set is_current = true %}
+            {%- endif %}
+            
+            <a
+                href="{{ item.path }}"
+                class="text-3xl jetbrains-mono-regular{% if not is_current %} opacity-50{% endif %} hover:opacity-100! transition-opacity hover:cursor-pointer duration-500">
+                {{ item.name }}
+            </a>
+        {%- endfor %}
+    </div>
+
+    <div class="hidden md:block h-1 w-12 bg-white translate-y-2.5 z-10"></div>
+
+    <button id="mobile-toggle" class="md:hidden z-50 text-white focus:outline-none bg-zinc-900 pl-4 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-10 h-10">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </button>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 bg-zinc-900 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
+    {%- for item in config.extra.navbar.items %}
+        {# Determine if this is the current page #}
+        {%- set is_current = false %}
+        {%- if current_path is defined %}
+            {%- set is_current = (current_path == item.path) %}
+        {%- elif item.default %}
+            {%- set is_current = true %}
+        {%- endif %}
+        
+        <a
+            href="{{ item.path }}"
+            class="text-4xl jetbrains-mono-regular{% if not is_current %} opacity-50{% endif %}">
+            {{ item.name }}
+        </a>
+    {%- endfor %}
+</div>
