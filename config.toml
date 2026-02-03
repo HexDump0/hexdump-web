@@ -17,10 +17,12 @@ build_search_index = false
 # Markdown settings
 [markdown]
 external_links_target_blank = true
-
 smart_punctuation = true
 bottom_footnotes = true
 render_emoji = true
+
+[markdown.highlighting]
+theme = "dark-plus"
 
 
 
