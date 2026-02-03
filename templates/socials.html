@@ -1,0 +1,32 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<main class="flex-1 flex items-center justify-center min-h-screen">
+    <div class="flex flex-col gap-16 justify-center items-center">
+        <a href="{{ config.extra.socials.pgp_key }}" class="flex items-center gap-3 text-4xl jetbrains-mono-regular">
+            <img height="46" width="46"
+                src="https://raw.githubusercontent.com/ModernPGP/icons/refs/heads/master/keys/icon-key.svg"
+                class="invert" />
+            <span class="text-cyan-400">PGP</span>
+            <span>keys</span>
+        </a>
+        <div class="flex gap-8 md:gap-16 flex-col md:flex-row">
+            <div class="flex flex-col gap-8 md:gap-4">
+                {% for link in config.extra.socials.links %}
+                    {% if link == 'sep' %}
+                    </div>
+                    <div class="w-0.5 bg-white hidden md:block"></div>
+                    <div class="flex flex-col gap-8 md:gap-4">
+                    {% else %}
+                    <a href="{{ link.url }}" class="flex items-center gap-6 text-3xl jetbrains-mono-regular">
+                        <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/{{ link.icon }}.svg"
+                            class="invert" />
+                        <span>{{ link.name }}</span>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}

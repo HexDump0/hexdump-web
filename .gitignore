@@ -2,6 +2,7 @@ public/
 node_modules/
 static/style.css
 package-lock.json
+zola 
 
 **/.DS_Store
 **/Thumbs.db

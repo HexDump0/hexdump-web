@@ -19,9 +19,7 @@
             {# Determine if this is the current page #}
             {%- set is_current = false %}
             {%- if current_path is defined %}
-                {%- set is_current = (current_path == item.path) %}
-            {%- elif item.default %}
-                {%- set is_current = true %}
+                {%- set is_current = (current_path | trim_end_matches(pat="/") == item.path | trim_end_matches(pat="/")) %}
             {%- endif %}
             
             <a
@@ -42,14 +40,12 @@
     </button>
 </nav>
 
-<div id="mobile-menu" class="fixed inset-0 bg-zinc-900 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
+<div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
     {%- for item in config.extra.navbar.items %}
         {# Determine if this is the current page #}
         {%- set is_current = false %}
         {%- if current_path is defined %}
-            {%- set is_current = (current_path == item.path) %}
-        {%- elif item.default %}
-            {%- set is_current = true %}
+            {%- set is_current = (current_path | trim_end_matches(pat="/") == item.path | trim_end_matches(pat="/")) %}
         {%- endif %}
         
         <a
@@ -59,3 +55,10 @@
         </a>
     {%- endfor %}
 </div>
+
+{# <div style="background: #222; color: #fff; padding: 1rem; margin: 2rem 0; border-radius: 0.5rem; font-size: 0.9rem; font-family: monospace; overflow-x: auto;">
+    <strong style="color: #0ff;">Debug: navbar context</strong>
+    <pre style="margin: 0; white-space: pre-wrap; word-break: break-all;">
+        {{__tera_context}}
+    </pre>
+</div> #}

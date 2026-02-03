@@ -2,6 +2,7 @@
 
 {% block content %}
     <div id="bg" class="-z-10 fixed inset-0 h-screen overflow-hidden">
+      {# If there are any errors on the next line just ignore them #}
       <div class="absolute inset-0 z-0 opacity-60 bg-center bg-no-repeat bg-cover"
         style="background-image: url({{ get_url(path='images/map.svg') }}); background-position: center center;"></div>
       <div class="absolute inset-0 z-0 pointer-events-none bg-linear-to-b from-zinc-900 from-10% to-transparent to-40%">
@@ -18,4 +19,5 @@
         </p>
       </div>
     </div>
+
 {% endblock content %}

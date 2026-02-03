@@ -26,11 +26,18 @@ render_emoji = true
 main_section = "posts"
 author = "Your Name"
 
-# Social links - add your own
-social_links = [
-    # { name = "github", url = "https://github.com/yourusername" },
-    # { name = "twitter", url = "https://twitter.com/yourusername" },
-    # { name = "email", url = "mailto:you@example.com" },
+[extra.socials]
+# The icons use Simple Icons names: https://simpleicons.org/
+pgp_key = "#"
+
+links = [
+    { name = "Discord", url = "#" , icon = "discord" },
+    { name = "Matrix", url = "#" , icon = "matrix" },
+    { name = "Mail", url = "#" , icon = "maildotru" },
+    'sep',
+    { name = "GitHub", url = "#" , icon = "github" },
+    { name = "GitLab", url = "#" , icon = "gitlab" }
+
 ]
 
 [extra.navbar]

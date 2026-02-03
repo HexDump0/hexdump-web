@@ -1,4 +1,4 @@
 +++
-title = "About"
-template = "about.html"
+title = "Socials"
+template = "socials.html"
 +++
