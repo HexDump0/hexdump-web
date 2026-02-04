@@ -1,12 +1,10 @@
 +++
 title = "Testin"
-date = 2025-01-28
+date = 2026-02-04
 
 [taxonomies]
-tags = ["examples"]
+tags = ["random"]
 
-[extra]
-banner = "blog/bench/img/banner.jpg"
 +++
 
 ## 1. Headings
@@ -180,3 +178,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 Repeat paragraphs should show consistent rhythm, margins, and max‑width handling across long content.
 
 ---
+
+## Credits
+
+*Banner image: Photo by [Markus Spiske](https://unsplash.com/photos/captcha-cvBBO4PzWPg) on Unsplash*

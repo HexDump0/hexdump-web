@@ -5,7 +5,9 @@ title = "Hexdump0"
 # Taxonomies
 taxonomies = [
   { name = "tags"},
-  { name = "examples" }
+  { name = "examples" },
+  { name = "random" },
+  { name = "non-technical" }
 ]
 
 # Feeds
