@@ -3,6 +3,7 @@ node_modules/
 static/style.css
 package-lock.json
 zola 
+.vscode/
 
 **/.DS_Store
 **/Thumbs.db

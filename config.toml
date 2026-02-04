@@ -3,12 +3,15 @@ base_url = "https://example.com"
 title = "Hexdump0"
 description = "Site"
 
-# Feeds
-generate_feeds = true
-feed_filenames = ["atom.xml", "rss.xml"]
-
 # Taxonomies
-taxonomies = [{ name = "tags", feed = true }]
+taxonomies = [
+  { name = "tags"},
+  { name = "examples" }
+]
+
+# Feeds
+generate_feeds = false
+feed_filenames = ["atom.xml", "rss.xml"]
 
 # Build options
 compile_sass = false
@@ -24,12 +27,12 @@ render_emoji = true
 [markdown.highlighting]
 theme = "dark-plus"
 
-
-
-# Custom variables
+# Theme settings
 [extra]
-main_section = "posts"
-author = "Your Name"
+
+[extra.home]
+text = "Hello I'm HexDump0, a random guy who likes to write, hack stuff (web for now) and rant about stupid stuff."
+subtext = ' -"My crime is that of curiosity."'
 
 [extra.socials]
 # The icons use Simple Icons names: https://simpleicons.org/
@@ -52,3 +55,6 @@ items = [
   { name = "Blog", path = "/blog" },
   { name = "Socials", path = "/socials" },
 ]
+
+[extra.footer]
+text = "Trust None"

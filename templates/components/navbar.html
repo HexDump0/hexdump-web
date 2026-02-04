@@ -2,7 +2,7 @@
     <div class="flex-1 relative flex items-center">
         <div class="absolute left-0 right-0 h-1 bg-white translate-y-2.5 z-30"></div>
         <div id="logo" class="relative z-20 pr-4">
-            <h1 class="text-5xl fira-code-bold">
+            <a href="/" class="text-5xl fira-code-bold">
                 {%- for part in config.extra.navbar.name -%}
                     {%- if loop.index0 == 0 -%}
                         {{ part }}
@@ -10,7 +10,7 @@
                         <span class="text-cyan-400">{{ part }}</span>
                     {%- endif -%}
                 {%- endfor -%}
-            </h1>
+            </a>
         </div>
     </div>
 
@@ -19,7 +19,9 @@
             {# Determine if this is the current page #}
             {%- set is_current = false %}
             {%- if current_path is defined %}
-                {%- set is_current = (current_path | trim_end_matches(pat="/") == item.path | trim_end_matches(pat="/")) %}
+                {%- set current_segment = current_path | split(pat="/") | nth(n=1) %}
+                {%- set item_segment = item.path | split(pat="/") | nth(n=1) %}
+                {%- set is_current = current_segment == item_segment %}
             {%- endif %}
             
             <a
@@ -45,7 +47,9 @@
         {# Determine if this is the current page #}
         {%- set is_current = false %}
         {%- if current_path is defined %}
-            {%- set is_current = (current_path | trim_end_matches(pat="/") == item.path | trim_end_matches(pat="/")) %}
+                {%- set current_segment = current_path | split(pat="/") | nth(n=1) %}
+                {%- set item_segment = item.path | split(pat="/") | nth(n=1) %}
+                {%- set is_current = current_segment == item_segment %}
         {%- endif %}
         
         <a

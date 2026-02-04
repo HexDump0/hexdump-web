@@ -8,18 +8,26 @@
         </div>
         <div class="relative z-10 w-full h-full flex gap-12 items-center justify-center md:justify-between md:px-96">
             <div class="text-center md:text-left">
-                <h1 class="text-4xl fira-code-bold">HexDump<span class="text-cyan-400">0</span></h1>
-                <p class="space-grotesk-regular text-xl opacity-75 mt-2">Last updated 26/01/26</p>
+                <h1 class="text-4xl fira-code-bold">
+                    {%- for part in config.extra.navbar.name -%}
+                        {%- if loop.index0 == 0 -%}
+                            {{ part }}
+                        {%- else -%}
+                            <span class="text-cyan-400">{{ part }}</span>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </h1>
+                <p class="space-grotesk-regular text-xl opacity-75 mt-2">Last updated {{ now() | date(format="%d/%m/%y") }}</p>
             </div>
             <div class="hidden md:flex gap-4 flex-col">
-                <a href="#" class="text-3xl jetbrains-mono-regular">About</a>
-                <a href="#" class="text-3xl jetbrains-mono-regular">Blog</a>
-                <a href="#" class="text-3xl jetbrains-mono-regular">Socials</a>
+                {%- for item in config.extra.navbar.items %}
+                <a href="{{ item.path }}" class="text-3xl jetbrains-mono-regular">{{ item.name }}</a>
+                {%- endfor %}
             </div>
         </div>
     </div>
     <div id="end" class="flex items-center justify-end px-12 relative z-20 mb-8">
-        <h1 class="text-4xl md:text-5xl fira-code-bold text-white">Trust None</h1>
+        <h1 class="text-4xl md:text-5xl fira-code-bold text-white">{{config.extra.footer.text}}</h1>
         <div id="line" class="h-1 bg-white absolute translate-y-1.5 md:translate-y-2 left-6 right-6"></div>
     </div>
 </footer>
