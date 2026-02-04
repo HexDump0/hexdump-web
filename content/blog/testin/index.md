@@ -1,7 +1,6 @@
 +++
-title = "Bench"
+title = "Testin"
 date = 2025-01-28
-description = "benchmark to test my theme"
 
 [taxonomies]
 tags = ["examples"]

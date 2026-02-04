@@ -1,7 +1,6 @@
 # Site Configuration
 base_url = "https://hexdump0.pw"
 title = "Hexdump0"
-description = "Site"
 
 # Taxonomies
 taxonomies = [
@@ -36,15 +35,15 @@ subtext = ' -"My crime is that of curiosity."'
 
 [extra.socials]
 # The icons use Simple Icons names: https://simpleicons.org/
-pgp_key = "#"
+pgp_key = "https://keys.openpgp.org/vks/v1/by-fingerprint/DD70A9AA9F59DC7A7A89013AE26294D326AC43BF"
 
 links = [
-    { name = "Discord", url = "#" , icon = "discord" },
-    { name = "Matrix", url = "#" , icon = "matrix" },
-    { name = "Mail", url = "#" , icon = "maildotru" },
+    { name = "Discord", url = "https://discord.com/users/1463570581894070448" , icon = "discord" },
+    { name = "Matrix", url = "https://matrix.to/#/@hexdump0:matrix.org" , icon = "matrix" },
+    { name = "Mail", url = "mailto:root@hexdump0.pw" , icon = "maildotru" },
     'sep',
-    { name = "GitHub", url = "#" , icon = "github" },
-    { name = "GitLab", url = "#" , icon = "gitlab" }
+    { name = "GitHub", url = "https://github.com/HexDump0/" , icon = "github" },
+    { name = "GitLab", url = "https://gitlab.com/hexdump0/" , icon = "gitlab" }
 
 ]
 

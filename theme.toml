@@ -10,18 +10,35 @@ demo = "https://hexdump.pw"
 name = "HexDump0"
 homepage = "https://hexdump.pw"
 
-# Any variable there can be overridden in the end user `config.toml`
-# You don't need to prefix variables by the theme name but as this will
-# be merged with user data, some kind of prefix or nesting is preferable
-# Use snake_casing to be consistent with the rest of Zola
+
+# Theme settings
 [extra]
 
-[extra.navbar]
+[extra.home]
+text = "Hello I'm HexDump0, a random guy who likes to write, hack stuff (web for now) and rant about stupid stuff."
+subtext = ' -"My crime is that of curiosity."'
 
-name = ["Hexdump","0"] # The second item will have a different color
+[extra.socials]
+# The icons use Simple Icons names: https://simpleicons.org/
+pgp_key = "#"
 
-items = [
-  { name = "About", url = "/", default = true },
-  { name = "Blog", url = "/blog" },
-  { name = "Socials", url = "/socials" },
+links = [
+    { name = "Discord", url = "#" , icon = "discord" },
+    { name = "Matrix", url = "#" , icon = "matrix" },
+    { name = "Mail", url = "#" , icon = "maildotru" },
+    'sep',
+    { name = "GitHub", url = "#" , icon = "github" },
+    { name = "GitLab", url = "#" , icon = "gitlab" }
+
 ]
+
+[extra.navbar]
+name = ["Hexdump", "0"]
+items = [
+  { name = "About", path = "/", default = true },
+  { name = "Blog", path = "/blog" },
+  { name = "Socials", path = "/socials" },
+]
+
+[extra.footer]
+text = "Trust None"
