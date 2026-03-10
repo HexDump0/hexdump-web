@@ -37,7 +37,7 @@ jobs:
           fc-cache -fv
 
       - name: Install Node dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build site
         run: ./hx build
