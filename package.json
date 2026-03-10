@@ -3,8 +3,8 @@
   "scripts": {
     "css": "tailwindcss -i ./styles/input.css -o ./static/style.css --watch",
     "css:build": "tailwindcss -i ./styles/input.css -o ./static/style.css --minify",
-    "dev": "concurrently \"npm run css\" \"zola serve\"",
-    "build": "npm run css:build && zola build"
+    "dev": "./hx serve",
+    "build": "./hx build"
   },
   "devDependencies": {
     "concurrently": "^9.0.0",

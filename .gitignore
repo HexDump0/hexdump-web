@@ -4,6 +4,7 @@ static/style.css
 package-lock.json
 zola 
 .vscode/
+.agents/
 
 **/.DS_Store
 **/Thumbs.db

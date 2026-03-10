@@ -17,13 +17,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Zola + upload Pages artifact
-        uses: getzola/github-pages@066755243e69f508fd1a74739fbf1a65f656c790
+      - name: Install Zola
+        run: |
+          wget -qO- https://github.com/getzola/zola/releases/download/v0.22.0/zola-v0.22.0-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          sudo mv zola /usr/local/bin/
+
+      - name: Install d2
+        run: |
+          curl -fsSL https://d2lang.com/install.sh | sh -s -- --tala
+
+      - name: Install JetBrains Mono Nerd Font
+        run: |
+          mkdir -p /usr/share/fonts/TTF
+          curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz \
+            | tar -xJ --wildcards '*.ttf' -C /usr/share/fonts/TTF
+          fc-cache -fv
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build site
+        run: ./hx build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          zola_version: v0.22.0
+          path: public
 
   deploy:
     runs-on: ubuntu-latest

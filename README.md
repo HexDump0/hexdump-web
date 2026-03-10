@@ -1,6 +1,6 @@
 # HexDump
 
-A simple Zola theme for my site.
+A simple Zola and d2 theme for my site.
 
 Quick Start
 -----------
@@ -11,12 +11,12 @@ Prerequisites:
 
 1. Serve the site locally with Zola:
     ```bash
-	zola serve --open
+	./hx serve
     ```
 
 2. Build for production
     ```bash
-    zola build
+    ./hx serve
     ```
 
 
@@ -68,3 +68,32 @@ Example layout for a post:
 
 - `content/blog/my-post/index.md`
 - `content/blog/my-post/banner.jpg`
+
+Creating Diagrams
+-----------------
+To create and use diagrams with d2
+
+1. **Create a `.d2` file**:
+
+   ```
+   Blog-1
+   |-> images
+     |-> img.d2
+
+   Hello -> World
+   ```
+
+2. **Link the `.d2` file in your Markdown**:
+
+   ```markdown
+   Blog-1
+   |-> index.md
+
+   Hello world
+   ![](images/img.svg)
+   ```
+
+   > **Note**: You can also use `.d2` in the link (e.g., `![](images/img.d2)`), and the script replace it to a `.svg`.
+
+
+For more information on d2, see the [official documentation](https://d2lang.com/tour/intro/).
