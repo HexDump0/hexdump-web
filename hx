@@ -3,7 +3,16 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONTENT_DIR="$SCRIPT_DIR/content"
-FONT_DIR="/usr/share/fonts/TTF"
+
+# Find font directory dynamically
+if [[ -f "$HOME/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf" ]]; then
+  FONT_DIR="$HOME/.local/share/fonts"
+elif [[ -f "/usr/share/fonts/TTF/JetBrainsMonoNerdFont-Regular.ttf" ]]; then
+  FONT_DIR="/usr/share/fonts/TTF"
+else
+  echo "Error: JetBrains Mono Nerd Font not found in common locations."
+  exit 1
+fi
 
 D2_THEME='vars: {
   d2-config: {

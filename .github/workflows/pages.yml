@@ -31,9 +31,9 @@ jobs:
 
       - name: Install JetBrains Mono Nerd Font
         run: |
-          mkdir -p /usr/share/fonts/TTF
+          mkdir -p ~/.local/share/fonts
           curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz \
-            | tar -xJ --wildcards '*.ttf' -C /usr/share/fonts/TTF
+            | tar -xJ --wildcards '*JetBrainsMonoNerdFont*.ttf' -C ~/.local/share/fonts
           fc-cache -fv
 
       - name: Install Node dependencies
