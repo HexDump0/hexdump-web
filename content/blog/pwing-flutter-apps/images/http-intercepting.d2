@@ -1,0 +1,43 @@
+vars: {
+  d2-config: {
+    layout-engine: tala
+  }
+}
+
+direction: down
+
+android: "Android Device" {
+  near: top-center
+  direction: right
+  app: "Flutter App" {
+    grid-columns: 2
+    client: "http / dio"
+    ssl: "SSL Pinning"
+  }
+
+  patch: "Frida / reFlutter" {
+    style.stroke-dash: 3
+  }
+
+  proxy: "VPN Based Proxy (TunProxy)" {
+    style.stroke-dash: 3
+  }
+
+  patch <- app: "Disables SSL Pinning"
+  app -> proxy: "Traffic" {style.animated: true}
+}
+
+internet: "Internet" {
+  shape: cloud
+  near: bottom-left
+}
+
+attacker: "Attacker Machine" {
+  near: bottom-center
+  burp: "Burpsuite\n(Invisible Proxy)"
+}
+
+attacker.burp -> internet: "HTTPS" {style.animated: true}
+internet -> attacker.burp: {style.animated: true}
+android.proxy -> attacker.burp {style.animated: true}
+attacker.burp -> android.proxy:"\nTunneled Traffic" {style.animated: true}

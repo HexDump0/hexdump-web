@@ -1,1 +1,49 @@
-grid-rows:3
+direction: down
+grid-columns: 1
+grid-gap: 32
+
+classes: {
+  layer: {
+    grid-columns: 4
+    horizontal-gap: 18
+    vertical-gap: 18
+  }
+
+  item: {
+    width: 180
+  }
+}
+
+Framework: {
+  class: layer
+  label: "Framework (Dart)"
+  style.font-size: 24
+  "UI Frameworks".class: item
+  "Widgets".class: item
+  "Rendering".class: item
+  "Animation".class: item
+}
+
+Engine: {
+  class: layer
+  label: "Engine (C++ / Dart VM)"
+  style.font-size: 24
+  "Dart VM".class: item
+  "Skia Render".class: item
+  "Platform Channels".class: item
+  "Runtime Systems".class: item
+}
+
+Embedder: {
+  class: layer
+  label: "Embedder"
+  style.font-size: 24
+  "Render Surface".class: item
+  "Threads / Loop".class: item
+  "Plugins".class: item
+  "OS Integration".class: item
+}
+
+Framework -> Engine -> Embedder: {
+  style.animated: true
+}

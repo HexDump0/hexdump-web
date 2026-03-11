@@ -59,6 +59,8 @@ build_d2() {
     "$tmpfile" "$output"
 
   rm -f "$tmpfile"
+  # Replace UNLICENSED COPY with empty string to avoid breaking XML
+  sed -i 's/UNLICENSED COPY//g' "$output"
   echo "  Built: $output"
 }
 

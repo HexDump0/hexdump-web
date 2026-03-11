@@ -1,0 +1,52 @@
+vars: {
+  d2-config: {
+    layout-engine: tala
+  }
+}
+
+direction: down
+
+classes: {
+  app
+  fw
+  eng
+  emb
+  iface
+}
+
+row1: "Platform Agnostic" {
+  direction: right
+
+  Dart: {
+    grid-columns: 2
+    grid-gap: 0
+    dart-app: "Dart App" {class: app}
+    framework: "Framework" {class: fw}
+  }
+  C/C++: {
+    grid-columns: 2
+    grid-gap: 0
+    dart-ui: "dart:ui" {class: iface}
+    engine: "Engine" {class: eng}
+  }
+
+  dart -> C/C++: "Flutter Engine API" {style.animated: true }
+
+  near: top-left
+}
+
+row2: "Platform Specific" {
+  direction: right
+  Embedder: {
+  grid-columns: 2
+  grid-gap: 0
+  platform-channels: "Platform\nChannels" {class: emb}
+  platform-api: "Platform-specific\nAPI"
+  }
+  runner: "Runner" {class: app}
+
+  embedder <- runner: {style.animated: true }
+  near: bottom-left
+}
+
+row1.C/C++.engine -> row2.embedder: "Embedder API (embedder.h)" {style.animated: true }
